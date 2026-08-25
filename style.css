@@ -1,0 +1,356 @@
+body {
+    margin: 0;
+    background-color: #121314;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+#menuButton {
+    flex-flow:column;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 25px;
+    background-color: #4cff91;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 15px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 275px;
+    height: 100%;
+    background-color: #252f3f;
+    display: none;
+    padding-top: 100px; 
+    z-index: 999;
+}
+
+.nav-button {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 10px;
+    background: none;
+    color: white;
+    border: none;
+    text-align: left;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.nav-button:hover {
+    background-color: #1ea878;
+}
+
+.page {
+    display: none;
+
+    padding: 100px 30px 30px 30px;
+}
+
+content {
+    margin-left: 0;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+h1 {
+    color: #fff;
+    font-size: 100px;
+    font-family: "Playfair Display", "EB Garamond", serif;
+}
+
+h2 {
+    color: #fff;
+    font-size: 45px;
+    font-family: "Karantina";
+}
+
+h3 {
+    color: #fff;
+    font-size: 50px;
+    font-family: "Playfair Display", "EB Garamond", serif;
+}
+
+h4 {
+    color: #fff  ;
+    font-size: 50px;
+    font-family: 'Playfair Display','EB Garamond',serif;
+}
+
+p {
+    color: #ffffff;
+    font-size: 20px;
+    font-family: 'Playfair Display','EB Garamond',serif;
+}
+p1 { 
+    color: #ffffff;
+    font-size: 20px;
+    font-family: 'Playfair Display','EB Garamond';
+    letter-spacing:0.2em;
+    line-height: 2.5;
+}
+
+p2 {
+    color: #000000;
+    font-size: 20px;
+    font-family: 'Playfair Display','EB Garamond',serif;
+}
+
+p3 {
+    color: #000000;
+    font-size: 20px;
+    font-family: 'Playfair Display','EB Garamond',serif;
+}
+
+page {
+    margin-left: 160px;
+    padding: 30px;
+}
+
+.bmi-section {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.bmi-section h2 {
+    text-align: center;
+}
+
+.calculator {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: #101719;
+    text-align: center;
+    overflow: hidden;
+}
+
+.calculator input {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #10e059; 
+}
+
+.calculator button {
+    padding: 10px 20px;
+}
+
+#result {
+    padding: 20px;
+    background-color: #10e059;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+body {
+		background-color: #101719;
+		color: white;
+    font-family: Playfair Display, EB Garamond, serif;
+    text-align: center;
+    margin-top: 100px;
+}
+
+button {
+    padding: 15px 25px;
+		color: #101719;
+		background-color: #5cff8d;
+		margin: 5px;
+    font-size: 16px;
+		border: none;
+		border-radius: 10px;
+}
+
+#numberOfGlasses {
+    font-size: 40px;
+    margin: 20px;
+}
+
+#resultWater {
+    width: 100%;
+    min-height: 40px;
+    margin-top: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #08db5c;
+    color: black;
+    text-align: center;
+}
+
+body {
+    background-color: #101719;
+    text-align: center;
+}
+ 
+h1 {
+     color: white;
+}
+ 
+.line {
+     border-top: 4px solid white;
+}
+ 
+ul {
+    width: 350px;
+    margin: 50px auto;
+    padding: 0;
+    text-align: left;
+}
+ 
+li {
+    margin: 12px;
+    padding: 8px;
+    background-color: lightblue;
+}
+ 
+.next {
+    color: white;
+    text-align: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+ 
+.next a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+ 
+.next a:hover {
+    text-decoration: underline;
+}
+
+.box {
+    width: 200px;
+    padding: 20px;
+    background-color: #eee;
+}
+
+.profile {
+    width: 300px;
+    padding: 20px;
+    background-color: #eee;
+}
+
+         body {
+          background-color: #101719;
+          text-align: center;
+}
+ 
+    h1 {
+     color: white;
+}
+ 
+     .line {
+     border-top: 4px solid white;
+}
+ 
+ul {
+        width: 350px;
+        margin: 50px auto;
+        padding: 0;
+        text-align: left;
+}
+ 
+li {
+    margin: 12px;
+    padding: 8px;
+    background-color: #121314;
+}
+ 
+.next {
+     color: #121314;
+     text-align: right;
+     margin-right: 20px;
+     margin-bottom: 20px;
+}
+ 
+.next a {
+     color: #121314;
+     text-decoration: none;
+     font-weight: bold;
+     cursor: pointer;
+}
+
+body {
+    background-color: #121314;
+    color: white;
+    font-family: Arial;
+}
+
+.container {
+    width: 500px;
+    margin: 50px auto;
+    background-color: #1d292c;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #5cff8d;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    background-color: #293538;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+button {
+    padding: 15px 25px;
+    background-color: #5cff8d;
+    color: #101719;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#resultWorkout {
+    margin-top: 25px;
+    text-align: left;
+}
+
+.exercise {
+    background-color: #293538;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+video {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
