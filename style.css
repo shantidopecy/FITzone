@@ -6,6 +6,19 @@ body {
     overflow-x: hidden;
 }
 
+body {
+  margin: 0;
+  background-color: #121212;
+  color: #ffffff;
+  background-image: 
+    linear-gradient(rgba(18, 18, 18, 0.88), rgba(18, 18, 18, 0.88)),
+  url('group.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 #menuButton {
     flex-flow:column;
     position: fixed;
@@ -52,7 +65,6 @@ body {
 
 .page {
     display: none;
-
     padding: 100px 30px 30px 30px;
 }
 
