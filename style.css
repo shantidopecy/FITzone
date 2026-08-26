@@ -348,27 +348,6 @@ body {
     align-items: center;
 }
 
-.video-container {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.video-container video {
-  width: 100%; 
-  max-width: 800px;
-  height: auto;
-  margin-bottom: 25px;
-  border-radius: 8px;
-}
-
-.video-label {
-  color: #33ff88;
-  font-weight: bold;
-  margin-top: 20px;
-  margin-bottom: 8px;
-}
-
 video {
   width: 100%;
   max-width: 600px; 
