@@ -369,7 +369,15 @@ body {
   margin-bottom: 8px;
 }
 
-/* Photo Gallery Grid */
+video {
+  width: 100%;
+  max-width: 600px; 
+  height: auto;
+  display: block;
+  margin: 15px auto;
+  border-radius: 8px;
+}
+
 .gallery-section {
   width: 100%;
   max-width: 1000px;
