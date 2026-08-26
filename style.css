@@ -244,17 +244,17 @@ li {
     background-color: #eee;
 }
 
-         body {
-          background-color: #101719;
-          text-align: center;
+body {
+    background-color: #101719;
+    text-align: center;
 }
  
-    h1 {
-     color: white;
+h1 {
+    color: white;
 }
  
-     .line {
-     border-top: 4px solid white;
+.line {
+    border-top: 4px solid white;
 }
  
 ul {
@@ -352,15 +352,6 @@ video {
     max-width: 100%;
     display: block;
     margin: 0 auto;
-}
-
-.workout-video {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  display: block;
-  margin: 10px auto;
-  border-radius: 8px;
 }
 
 .gallery-section {
