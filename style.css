@@ -6,50 +6,6 @@ body {
     overflow-x: hidden;
 }
 
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.photo-card {
-  background-color: #1a1a1a;
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.photo-card img {
-  width: 100%;
-  aspect-ratio: 4 / 3; 
-  object-fit: cover;   
-  object-position: center;
-  display: block;
-}
-
-.photo-label {
-  color: #ffffff;
-  font-family: serif;
-  text-align: center;
-  padding: 15px 10px;
-  margin: 0;
-  background-color: #1a1a1a;
-}
-
-body {
-  margin: 0;
-  background-color: #121212;
-  color: #ffffff;
-  background-image: 
-    linear-gradient(rgba(18, 18, 18, 0.88), rgba(18, 18, 18, 0.88)),
-  url('group.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
 #menuButton {
     flex-flow:column;
     position: fixed;
@@ -392,8 +348,65 @@ body {
     align-items: center;
 }
 
-video {
-    max-width: 100%;
-    display: block;
-    margin: 0 auto;
+.video-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.video-container video {
+  width: 100%; 
+  max-width: 800px;
+  height: auto;
+  margin-bottom: 25px;
+  border-radius: 8px;
+}
+
+.video-label {
+  color: #33ff88;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+/* Photo Gallery Grid */
+.gallery-section {
+  width: 100%;
+  max-width: 1000px;
+  margin: 50px auto 20px auto;
+  text-align: center;
+}
+
+.gallery-title {
+  color: #33ff88;
+  margin-bottom: 25px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.photo-card {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.photo-label {
+  color: #ffffff;
+  padding: 12px 5px;
+  margin: 0;
+  background-color: #1a1a1a;
 }
