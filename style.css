@@ -348,12 +348,12 @@ body {
     align-items: center;
 }
 
-video {
+.workout-video {
   width: 100%;
-  max-width: 600px; 
+  max-width: 500px; 
   height: auto;
   display: block;
-  margin: 15px auto;
+  margin: 10px auto;
   border-radius: 8px;
 }
 
