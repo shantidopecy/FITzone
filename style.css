@@ -348,13 +348,10 @@ body {
     align-items: center;
 }
 
-.workout-video {
-  width: 100%;
-  max-width: 500px; 
-  height: auto;
-  display: block;
-  margin: 10px auto;
-  border-radius: 8px;
+video {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
 }
 
 .gallery-section {
