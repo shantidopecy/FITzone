@@ -6,6 +6,37 @@ body {
     overflow-x: hidden;
 }
 
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.photo-card {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3; 
+  object-fit: cover;   
+  object-position: center;
+  display: block;
+}
+
+.photo-label {
+  color: #ffffff;
+  font-family: serif;
+  text-align: center;
+  padding: 15px 10px;
+  margin: 0;
+  background-color: #1a1a1a;
+}
+
 #menuButton {
     flex-flow:column;
     position: fixed;
