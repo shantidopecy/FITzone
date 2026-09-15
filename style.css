@@ -32,6 +32,22 @@ body {
     transform: scale(1.05);
 }
 
+.card-container {
+  display: flex;
+  flex-direction: row; 
+  gap: 20px; 
+  justify-content: center; 
+  align-items: center; 
+  flex-wrap: nowrap; 
+}
+
+.card-container {
+  display: grid;
+  grid-auto-flow: column; 
+  gap: 20px;
+  justify-content: center;
+}
+
 #menuButton {
     flex-flow:column;
     position: fixed;
