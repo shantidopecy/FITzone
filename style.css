@@ -97,6 +97,10 @@ body {
     padding: 100px 30px 30px 30px;
 }
 
+.page.active {
+  display: block;
+}
+
 content {
     margin-left: 0;
     padding: 20px;
