@@ -6,48 +6,30 @@ body {
     overflow-x: hidden;
 }
 
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.picture-container {
+    width: 85%;
+    margin: 70px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
-.photo-card {
-  background-color: #1a1a1a;
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+.picture-box {
+    height: 230px;
+    overflow: hidden;
+    border-radius: 12px;
 }
 
-.photo-card img {
-  width: 100%;
-  aspect-ratio: 4 / 3; 
-  object-fit: cover;   
-  object-position: center;
-  display: block;
+.picture-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
 }
 
-.photo-label {
-  color: #ffffff;
-  font-family: serif;
-  text-align: center;
-  padding: 15px 10px;
-  margin: 0;
-  background-color: #1a1a1a;
-}
-
-body {
-  margin: 0;
-  background-color: #121212;
-  color: #ffffff;
-  background-image: 
-    linear-gradient(rgba(18, 18, 18, 0.88), rgba(18, 18, 18, 0.88)),
-  url('group.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+.picture-box img:hover {
+    transform: scale(1.05);
 }
 
 #menuButton {
@@ -288,17 +270,17 @@ li {
     background-color: #eee;
 }
 
-         body {
-          background-color: #101719;
-          text-align: center;
+body {
+    background-color: #101719;
+    text-align: center;
 }
  
-    h1 {
-     color: white;
+h1 {
+    color: white;
 }
  
-     .line {
-     border-top: 4px solid white;
+.line {
+    border-top: 4px solid white;
 }
  
 ul {
@@ -396,4 +378,45 @@ video {
     max-width: 100%;
     display: block;
     margin: 0 auto;
+}
+
+.gallery-section {
+  width: 100%;
+  max-width: 1000px;
+  margin: 50px auto 20px auto;
+  text-align: center;
+}
+
+.gallery-title {
+  color: #33ff88;
+  margin-bottom: 25px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.photo-card {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: contain; 
+  background-color: #121212; 
+  display: block;
+}
+
+.photo-label {
+  color: #ffffff;
+  padding: 12px 5px;
+  margin: 0;
+  background-color: #1a1a1a;
 }
