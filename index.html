@@ -5,43 +5,58 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="menuButton">☰</button>
-    <nav id="navigation"></nav>
-    <div id = "content"></div>
-
-<section class="home">
-    <h1>Home</h1>
-    <h2>Unleash your full potential</h2>
-    <p1>Discover personalized fitness plans and home workouts designed to help you build strength, improve and achieve your fitness goals.</p1> 
-
-    <div class="slider">
-        <div class="slides">
-            <img src="images/home1.jpg" alt="Fitness workout">
-            <img src="images/home2.jpg" alt="Fitness workout">
-            <img src="images/home3.jpg" alt="Fitness workout">
-            <img src="images/home4.jpg" alt="Fitness workout">
-            <img src="images/home5.jpg" alt="Fitness workout">
-        </div>
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
-    </div>
-</section>
+    <button id="menuButton" class="menu-button">☰ </button>
+    <nav id="navigation" class="sidebar">
+        <div class="logo">FITZone</div>
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#bmi" class="nav-link">BMI Calculator</a>
+        <a href="#guides" class="nav-link">Workout Guides</a>
+        <a href="#generator" class="nav-link">Workout Generator</a>
+        <a href="#profile" class="nav-link">Profile</a>
+    </nav>
     
-    <div class="fitness-tips-section">
-        <h1>FITNESS TIPS</h1>
-        <div class="line"></div>
-        <ul>
-            <li>Drink enough water before and after exercising.</li>
-            <li>Always warm up before doing any exercise.</li>
-            <li>Start with simple exercises and slowly improve.</li>
-            <li>Take a short break when your body feels tired.</li>
-            <li>Eat healthy food to help keep your body strong.</li>
-            <li>Get enough sleep so your body can rest and recover.</li>
-            <li>Exercise regularly and make it part of your routine.</li>
-        </ul>
+<main id="content">
+<section id="home" class="home section">
+<div class="home-content">
+<h1>Home</h1>
+<h2>Unleash your full potential</h2>
+<p1>Discover personalized fitness plans and home workouts designed to help you build strength, improve and achieve your fitness goals.</p1>
+
+<div class="slider">
+    <div class="slides">
+        <img src="images/home1.jpg" alt="Fitness workout">
+        <img src="images/home2.jpg" alt="Fitness workout">
+        <img src="images/home3.jpg" alt="Fitness workout">
+        <img src="images/home4.jpg" alt="Fitness workout">
+        <img src="images/home5.jpg" alt="Fitness workout">
     </div>
+
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+
 </div>
 
+<button class="slider-button prev" id="prevButton">❮</button>
+<button class="slider-button next" id="nextButton">❯</button>
+</div>
+
+<div id="sliderDots" class="slider-dots"></div>
+</div>
+
+<div class="fitness-tips-section">
+<h1>FITNESS TIPS</h1>
+<div class="line"></div>
+    <ul>
+    <li>Drink enough water before and after exercising.</li>
+    <li>Always warm up before doing any exercise.</li>
+    <li>Start with simple exercises and slowly improve.</li>
+    <li>Take a short break when your body feels tired.</li>
+    <li>Eat healthy food to help keep your body strong.</li>
+    <li>Get enough sleep so your body can rest and recover.</li>
+    <li>Exercise regularly and make it part of your routine.</li>
+    </ul>
+</div>
+</section>
     
 <div class="line"></div>
     <div id="Dashboard" class="page">
