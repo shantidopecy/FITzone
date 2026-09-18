@@ -1,9 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    background-color: #121314;
+    background-color: #101719;
     color: white;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
+}
+
+#content {
+    width: 100%;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 100px 30px 60px;
+}
+
+.page.active {
+    display: block;
 }
 
 .home {
@@ -12,19 +30,25 @@ body {
     padding-bottom: 80px;
 }
 
+.home-content {
+    width: 100%;
+}
+
 .home h1 {
     color: #45ff91;
     font-size: 75px;
-    margin-bottom: 25px;
+    margin: 0 0 25px;
+    font-family: "Playfair Display", "EB Garamond", serif;
 }
 
 .home h2 {
+    color: white;
     font-size: 22px;
     letter-spacing: 5px;
     margin-bottom: 20px;
 }
 
-.home p {
+.home-description {
     max-width: 1000px;
     margin: 0 auto 40px;
     font-size: 16px;
@@ -41,7 +65,7 @@ body {
     margin: 40px auto 0;
     overflow: hidden;
     border-radius: 12px;
-    background: #222;
+    background-color: #222;
 }
 
 .slides {
@@ -56,9 +80,11 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
-.slider button {
+.slider-prev,
+.slider-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -71,171 +97,183 @@ body {
     font-size: 25px;
     cursor: pointer;
     z-index: 2;
+    padding: 0;
+    margin: 0;
 }
 
-.slider button:hover {
+.slider-prev {
+    left: 20px;
+}
+
+.slider-next {
+    right: 20px;
+}
+
+.slider-prev:hover,
+.slider-next:hover {
     background-color: #45ff91;
     color: #111;
 }
 
-.prev {
-    left: 20px;
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
 }
 
-.next {
-    right: 20px;
-}
-
-.sidebar {
-  width: 240px;
-  background-color: #1a2332; 
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding-top: 20px;
-  font-family: sans-serif;
-}
-
-.logo {
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 14px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.sidebar .nav-link {
-  display: block;
-  color: #ffffff;
-  text-decoration: none;
-  padding: 16px 24px;
-  font-size: 18px;
-  font-weight: 500;
-  transition: background-color 0.2s ease;
-}
-
-.sidebar .nav-link.active {
-  background-color: #00b87c; 
-  color: #ffffff;
-}
-
-.sidebar .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-.menu-button {
-  background-color: #2eeb9d;
-  border: none;
-  color: #000;
-  font-size: 20px;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 4px;
-  margin: 10px;
-}
-
-
-#navigation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 275px;
-    height: 100%;
-    background-color: #252f3f;
-    display: none;
-    padding-top: 100px; 
-    z-index: 999;
-}
-
-.nav-button {
-    display: block;
-    width: 100%;
-    padding: 20px;
-    margin-bottom: 10px;
-    background: none;
-    color: white;
+.slider-dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    margin: 0;
     border: none;
-    text-align: left;
-    font-size: 20px;
+    border-radius: 50%;
+    background-color: #555;
     cursor: pointer;
 }
 
-.nav-button:hover {
-    background-color: #1ea878;
+.slider-dot.active {
+    background-color: #45ff91;
 }
 
-.page {
+.menu-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    background-color: #2eeb9d;
+    border: none;
+    color: #000;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 8px;
+    z-index: 1001;
+}
+
+.menu-button:hover {
+    background-color: #45ff91;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    background-color: #1a2332;
     display: none;
-    padding: 100px 30px 30px 30px;
+    flex-direction: column;
+    padding-top: 90px;
+    font-family: sans-serif;
+    z-index: 1000;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.4);
 }
 
-.page.active {
-  display: block;
+.logo {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-content {
-    margin-left: 0;
-    padding: 20px;
-    transition: margin-left 0.3s ease;
+.sidebar .nav-link {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 16px 24px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar .nav-link.active {
+    background-color: #00b87c;
+    color: white;
+}
+
+.sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 h1 {
-    color: #fff;
-    font-size: 100px;
+    color: #5cff8d;
+    font-size: 80px;
     font-family: "Playfair Display", "EB Garamond", serif;
 }
 
 h2 {
-    color: #fff;
+    color: #5cff8d;
     font-size: 45px;
-    font-family: "Karantina";
+    font-family: "Playfair Display", "EB Garamond", serif;
 }
 
 h3 {
-    color: #fff;
+    color: #5cff8d;
     font-size: 50px;
     font-family: "Playfair Display", "EB Garamond", serif;
 }
 
 h4 {
-    color: #fff  ;
-    font-size: 50px;
-    font-family: 'Playfair Display','EB Garamond',serif;
+    color: white;
+    font-size: 45px;
+    font-family: "Playfair Display", "EB Garamond", serif;
 }
 
 p {
-    color: #ffffff;
+    color: white;
     font-size: 20px;
-    font-family: 'Playfair Display','EB Garamond',serif;
+    font-family: "Playfair Display", "EB Garamond", serif;
+    line-height: 1.7;
 }
-p1 { 
-    color: #ffffff;
+
+p1 {
+    color: white;
     font-size: 20px;
-    font-family: 'Playfair Display','EB Garamond';
-    letter-spacing:0.2em;
+    font-family: "Playfair Display", "EB Garamond", serif;
+    letter-spacing: 0.2em;
     line-height: 2.5;
 }
 
-p2 {
-    color: #000000;
-    font-size: 20px;
-    font-family: 'Playfair Display','EB Garamond',serif;
+.line {
+    width: 85%;
+    margin: 30px auto;
+    border-top: 4px solid white;
 }
 
-p3 {
-    color: #000000;
-    font-size: 20px;
-    font-family: 'Playfair Display','EB Garamond',serif;
+.fitness-tips-section {
+    margin-top: 90px;
 }
 
-page {
-    margin-left: 160px;
-    padding: 30px;
+.fitness-tips-section h1 {
+    font-size: 50px;
+}
+
+ul {
+    width: 500px;
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 0;
+    text-align: left;
+    list-style: none;
+}
+
+li {
+    margin: 12px;
+    padding: 12px;
+    background-color: #1d292c;
+    border-radius: 8px;
 }
 
 .bmi-section {
     width: 600px;
+    max-width: 100%;
     margin: 0 auto;
+    text-align: center;
 }
 
 .bmi-section h2 {
@@ -245,49 +283,42 @@ page {
 .calculator {
     width: 90%;
     max-width: 500px;
-    margin: 0 auto;
+    margin: 30px auto;
     padding: 30px;
-    box-sizing: border-box;
     background-color: #101719;
+    border-radius: 15px;
     text-align: center;
-    overflow: hidden;
 }
 
 .calculator input {
     display: block;
     width: 90%;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #10e059; 
+    padding: 12px;
+    margin: 10px auto;
+    background-color: #293538;
+    color: white;
+    border: none;
+    border-radius: 8px;
 }
 
 .calculator button {
-    padding: 10px 20px;
+    padding: 12px 20px;
+    color: #101719;
+    background-color: #5cff8d;
+    margin: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 #result {
     padding: 20px;
     background-color: #10e059;
+    color: #101719;
     margin-top: 10px;
     font-weight: bold;
-}
-
-body {
-		background-color: #101719;
-		color: white;
-    font-family: Playfair Display, EB Garamond, serif;
-    text-align: center;
-    margin-top: 100px;
-}
-
-button {
-    padding: 15px 25px;
-		color: #101719;
-		background-color: #5cff8d;
-		margin: 5px;
-    font-size: 16px;
-		border: none;
-		border-radius: 10px;
+    border-radius: 8px;
 }
 
 #numberOfGlasses {
@@ -300,125 +331,72 @@ button {
     min-height: 40px;
     margin-top: 15px;
     padding: 10px;
-    box-sizing: border-box;
     background-color: #08db5c;
     color: black;
     text-align: center;
+    border-radius: 8px;
 }
 
-body {
-    background-color: #101719;
+video {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.gallery-section {
+    width: 100%;
+    max-width: 1000px;
+    margin: 60px auto 20px;
     text-align: center;
 }
- 
-h1 {
-     color: white;
-}
- 
-.line {
-     border-top: 4px solid white;
-}
- 
-ul {
-    width: 350px;
-    margin: 50px auto;
-    padding: 0;
-    text-align: left;
-}
- 
-li {
-    margin: 12px;
-    padding: 8px;
-    background-color: lightblue;
-}
- 
-.next {
-    color: white;
-    text-align: right;
-    margin-right: 20px;
-    margin-bottom: 20px;
-}
- 
-.next a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-}
- 
-.next a:hover {
-    text-decoration: underline;
+
+.gallery-title {
+    color: #33ff88;
+    margin-bottom: 25px;
 }
 
-.box {
-    width: 200px;
-    padding: 20px;
-    background-color: #eee;
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-.profile {
-    width: 300px;
-    padding: 20px;
-    background-color: #eee;
+.photo-card {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-body {
-    background-color: #101719;
-    text-align: center;
+.photo-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    background-color: #121212;
+    display: block;
 }
- 
-h1 {
+
+.photo-label {
     color: white;
-}
- 
-.line {
-    border-top: 4px solid white;
-}
- 
-ul {
-        width: 350px;
-        margin: 50px auto;
-        padding: 0;
-        text-align: left;
-}
- 
-li {
-    margin: 12px;
-    padding: 8px;
-    background-color: #121314;
-}
- 
-.next {
-     color: #121314;
-     text-align: right;
-     margin-right: 20px;
-     margin-bottom: 20px;
-}
- 
-.next a {
-     color: #121314;
-     text-decoration: none;
-     font-weight: bold;
-     cursor: pointer;
-}
-
-body {
-    background-color: #121314;
-    color: white;
-    font-family: Arial;
+    padding: 12px 5px;
+    margin: 0;
+    background-color: #1a1a1a;
 }
 
 .container {
     width: 500px;
+    max-width: 95%;
     margin: 50px auto;
     background-color: #1d292c;
     padding: 30px;
     border-radius: 20px;
     text-align: center;
-}
-
-h1 {
-    color: #5cff8d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 select {
@@ -430,7 +408,7 @@ select {
     border-radius: 10px;
 }
 
-button {
+.container button {
     padding: 15px 25px;
     background-color: #5cff8d;
     color: #101719;
@@ -443,6 +421,7 @@ button {
 #resultWorkout {
     margin-top: 25px;
     text-align: left;
+    width: 100%;
 }
 
 .exercise {
@@ -452,63 +431,51 @@ button {
     border-radius: 10px;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.circle {
+    width: 150px;
+    height: 150px;
+    margin: 30px auto;
+    background-color: #293538;
+    border-radius: 50%;
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#Profile {
+    text-align: center;
 }
 
-video {
-    max-width: 100%;
-    display: block;
-    margin: 0 auto;
+#Profile hr {
+    width: 400px;
+    max-width: 80%;
+    border: none;
+    border-top: 1px solid #444;
 }
 
-.gallery-section {
-  width: 100%;
-  max-width: 1000px;
-  margin: 50px auto 20px auto;
-  text-align: center;
-}
+@media (max-width: 700px) {
 
-.gallery-title {
-  color: #33ff88;
-  margin-bottom: 25px;
-}
+    h1 {
+        font-size: 55px;
+    }
 
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
+    h2 {
+        font-size: 35px;
+    }
 
-.photo-card {
-  background-color: #1a1a1a;
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
+    .slider {
+        width: 95%;
+        height: 280px;
+    }
 
-.photo-card img {
-  width: 100%;
-  height: 280px;
-  object-fit: contain; 
-  background-color: #121212; 
-  display: block;
-}
+    .home-description {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
 
-.photo-label {
-  color: #ffffff;
-  padding: 12px 5px;
-  margin: 0;
-  background-color: #1a1a1a;
+    .sidebar {
+        width: 230px;
+    }
+
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
+
 }
