@@ -1,84 +1,112 @@
-let pages = [
-  "home",
-  "bmi",
-  "guides",
-  "generator",
-  "profile"
-];
-
 let navigation = document.getElementById("navigation");
 let menuButton = document.getElementById("menuButton");
-let navLinks = navigation.getElementsByTagName("a");
+let navLinks = document.querySelectorAll(".nav-link");
+let pages = document.querySelectorAll(".page");
 
-function showPage(index) {
-  for (let i = 0; i < pages.length; i++) {
-    let section = document.getElementById(pages[i]);
-    if (section) {
-      section.style.display = "none";
+function showPage(targetId) {
+    for (let i = 0; i < pages.length; i++) {
+        pages[i].style.display = "none";
     }
-  }
 
-  let targetSection = document.getElementById(pages[index]);
-  if (targetSection) {
-    targetSection.style.display = "block";
-    targetSection.scrollIntoView({ behavior: "smooth" });
-  }
+    let targetPage = document.getElementById(targetId);
 
-  for (let i = 0; i < navLinks.length; i++) {
-    navLinks[i].classList.remove("active");
-  }
-  if (navLinks[index]) {
-    navLinks[index].classList.add("active");
-  }
+    if (targetPage) {
+        targetPage.style.display = "block";
+    }
 
-  navigation.style.display = "none";
+    for (let i = 0; i < navLinks.length; i++) {
+        navLinks[i].classList.remove("active");
+
+        if (navLinks[i].getAttribute("data-target") === targetId) {
+            navLinks[i].classList.add("active");
+        }
+    }
+
+    navigation.style.display = "none";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 
 menuButton.onclick = function () {
-  if (navigation.style.display === "block" || navigation.style.display === "flex") {
-    navigation.style.display = "none";
-  } else {
-    navigation.style.display = "block";
-  }
+    if (navigation.style.display === "flex") {
+        navigation.style.display = "none";
+    } else {
+        navigation.style.display = "flex";
+    }
 };
 
 for (let i = 0; i < navLinks.length; i++) {
-  navLinks[i].onclick = function (event) {
-    event.preventDefault(); 
-    showPage(i);
-  };
+    navLinks[i].onclick = function (event) {
+        event.preventDefault();
+
+        let target = navLinks[i].getAttribute("data-target");
+
+        showPage(target);
+    };
 }
 
-showPage(0);
+showPage("home");
 
-  let currentSlide = 0;
-  let totalSlides = $(".slides img").length;
+let currentSlide = 0;
 
-  function showSlide(index) {
-    if (index >= totalSlides) {
-      currentSlide = 0;
+let slides = document.querySelector(".slides");
+let slideImages = document.querySelectorAll(".slides img");
+
+let prevButton = document.getElementById("prevButton");
+let nextButton = document.getElementById("nextButton");
+
+let sliderDots = document.getElementById("sliderDots");
+
+for (let i = 0; i < slideImages.length; i++) {
+
+    let dot = document.createElement("button");
+
+    dot.className = "slider-dot";
+
+    dot.onclick = function () {
+        showSlide(i);
+    };
+
+    sliderDots.appendChild(dot);
+}
+
+let dots = document.querySelectorAll(".slider-dot");
+
+function showSlide(index) {
+
+    if (index >= slideImages.length) {
+        currentSlide = 0;
     } else if (index < 0) {
-      currentSlide = totalSlides - 1;
+        currentSlide = slideImages.length - 1;
     } else {
-      currentSlide = index;
+        currentSlide = index;
     }
 
-    $(".slides").css(
-      "transform",
-      "translateX(-" + (currentSlide * 100) + "%)"
-    );
-  }
+    slides.style.transform =
+        "translateX(-" + (currentSlide * 100) + "%)";
 
-  $(".next").click(function () {
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+    }
+
+    dots[currentSlide].classList.add("active");
+}
+
+nextButton.onclick = function () {
     showSlide(currentSlide + 1);
-  });
+};
 
-  $(".prev").click(function () {
+prevButton.onclick = function () {
     showSlide(currentSlide - 1);
-  });
-});
+};
+
+showSlide(0);
 
 let bmiButton = document.getElementById("btn");
+
 bmiButton.addEventListener("click", calculateBMI);
 
 function calculateBMI() {
@@ -94,42 +122,39 @@ function calculateBMI() {
     let result = document.getElementById("result");
 
     if (isNaN(height) || height <= 0) {
+
         result.innerHTML = "Provide a valid height!";
 
-    }
+    } else if (isNaN(weight) || weight <= 0) {
 
-    else if (isNaN(weight) || weight <= 0) {
         result.innerHTML = "Provide a valid weight!";
 
-    }
+    } else {
 
-    else {
         let bmi = weight / ((height * height) / 10000);
+
         bmi = Math.round(bmi * 100) / 100;
 
         if (bmi < 18.5) {
 
             result.innerHTML =
-                `Underweight: ${bmi}`;
+                "Underweight: " + bmi;
 
-        }
-
-        else if (bmi < 24.9) {
+        } else if (bmi < 24.9) {
 
             result.innerHTML =
-                `Normal: ${bmi}`;
+                "Normal: " + bmi;
 
-        }
+        } else {
 
-        else {
             result.innerHTML =
-                `Overweight: ${bmi}`;
+                "Overweight: " + bmi;
         }
     }
 }
 
-
 let water = 0;
+
 function addGlass() {
 
     water++;
@@ -142,7 +167,6 @@ function addGlass() {
         "resultWater"
     ).innerHTML = "";
 }
-
 
 function removeGlass() {
 
@@ -159,29 +183,31 @@ function removeGlass() {
     ).innerHTML = "";
 }
 
-
 function waterIntakeCheck() {
 
     if (water >= 8) {
+
         document.getElementById(
             "resultWater"
         ).innerHTML = "GOOD!";
-    }
 
-    else if (water >= 5) {
+    } else if (water >= 5) {
+
         document.getElementById(
             "resultWater"
-        ).innerHTML = "DRINK A FEW MORE GLASSES OF WATER";
-    }
+        ).innerHTML =
+            "DRINK A FEW MORE GLASSES OF WATER";
 
-    else {
+    } else {
+
         document.getElementById(
             "resultWater"
-        ).innerHTML = "DRINK MORE WATER";
+        ).innerHTML =
+            "DRINK MORE WATER";
     }
 }
 
-var fullbody = [
+let fullbody = [
     "Jumping Jacks - 30 seconds",
     "Squats - 12 reps",
     "Push-ups - 10 reps",
@@ -189,7 +215,7 @@ var fullbody = [
     "Plank - 30 seconds"
 ];
 
-var arms = [
+let arms = [
     "Push-ups - 10 reps",
     "Tricep Dips - 12 reps",
     "Arm Circles - 30 seconds",
@@ -197,7 +223,7 @@ var arms = [
     "Plank - 30 seconds"
 ];
 
-var legs = [
+let legs = [
     "Squats - 15 reps",
     "Lunges - 12 reps",
     "Glute Bridges - 15 reps",
@@ -205,7 +231,7 @@ var legs = [
     "Wall Sit - 30 seconds"
 ];
 
-var core = [
+let core = [
     "Plank - 30 seconds",
     "Crunches - 15 reps",
     "Leg Raises - 10 reps",
@@ -213,7 +239,7 @@ var core = [
     "Mountain Climbers - 30 seconds"
 ];
 
-var cardio = [
+let cardio = [
     "Jumping Jacks - 30 seconds",
     "High Knees - 30 seconds",
     "Mountain Climbers - 30 seconds",
@@ -223,44 +249,61 @@ var cardio = [
 
 function generateWorkout() {
 
-    var workout = document.getElementById("workout").value;
-    var difficulty = document.getElementById("difficulty").value;
-    var result = document.getElementById("resultWorkout");
+    let workout =
+        document.getElementById("workout").value;
+
+    let difficulty =
+        document.getElementById("difficulty").value;
+
+    let result =
+        document.getElementById("resultWorkout");
 
     if (difficulty == "") {
+
         alert("Please select a difficulty.");
+
         return;
     }
 
     if (workout == "") {
+
         alert("Please select a workout.");
+
         return;
     }
 
-    var exercises;
+    let exercises;
 
     if (workout == "fullbody") {
+
         exercises = fullbody;
-    }
-    else if (workout == "arms") {
+
+    } else if (workout == "arms") {
+
         exercises = arms;
-    }
-    else if (workout == "legs") {
+
+    } else if (workout == "legs") {
+
         exercises = legs;
-    }
-    else if (workout == "core") {
+
+    } else if (workout == "core") {
+
         exercises = core;
-    }
-    else {
+
+    } else {
+
         exercises = cardio;
     }
 
     result.innerHTML = "";
 
-    result.innerHTML += "<h2>Your Workout</h2>";
-    result.innerHTML += "<p>Difficulty: " + difficulty + "</p>";
+    result.innerHTML +=
+        "<h2>Your Workout</h2>";
 
-    for (var i = 0; i < exercises.length; i++) {
+    result.innerHTML +=
+        "<p>Difficulty: " + difficulty + "</p>";
+
+    for (let i = 0; i < exercises.length; i++) {
 
         result.innerHTML +=
             "<div class='exercise'>" +
@@ -269,4 +312,5 @@ function generateWorkout() {
     }
 }
 
-document.getElementById("generate").onclick = generateWorkout;
+document.getElementById("generate").onclick =
+    generateWorkout;
