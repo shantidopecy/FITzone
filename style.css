@@ -1,23 +1,139 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
+    padding: 0;
     background-color: #121314;
     color: white;
     font-family: Arial, sans-serif;
+    text-align: center;
     overflow-x: hidden;
 }
 
+#menuButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    background-color: #5cff8d;
+    color: #101719;
+    border: none;
+    border-radius: 8px;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+#menuButton:hover {
+    background-color: #4cff91;
+}
+
+#navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 275px;
+    height: 100vh;
+    background-color: #252f3f;
+    display: none;
+    padding-top: 90px;
+    z-index: 1000;
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.nav-button {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    margin: 0;
+    background: none;
+    color: white;
+    border: none;
+    border-radius: 0;
+    text-align: left;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.nav-button:hover {
+    background-color: #1ea878;
+}
+
+.nav-button.active {
+    background-color: #1ea878;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 100px 30px 60px;
+}
+
+h1 {
+    color: #5cff8d;
+    font-size: 80px;
+    font-family: "Playfair Display", "EB Garamond", Georgia, serif;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #5cff8d;
+    font-size: 45px;
+    font-family: "Playfair Display", "EB Garamond", Georgia, serif;
+}
+
+h3 {
+    color: #5cff8d;
+    font-size: 50px;
+    font-family: "Playfair Display", "EB Garamond", Georgia, serif;
+}
+
+h4 {
+    color: white;
+    font-size: 45px;
+    font-family: "Playfair Display", "EB Garamond", Georgia, serif;
+}
+
+p {
+    color: white;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.subtitle {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0.25em;
+}
+
+.description {
+    max-width: 1100px;
+    margin: 20px auto;
+    letter-spacing: 0.15em;
+    line-height: 2;
+}
+
 .picture-container {
-    width: 85%;
-    margin: 70px auto 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    position: relative;
+    width: 75%;
+    max-width: 900px;
+    height: 390px;
+    margin: 50px auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .picture-box {
-    height: 230px;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     border-radius: 12px;
+    background-color: #222;
 }
 
 .picture-box img {
@@ -29,121 +145,86 @@ body {
 }
 
 .picture-box img:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
-#menuButton {
-    flex-flow:column;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    font-size: 25px;
-    background-color: #4cff91;
-    color: black;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 15px;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-#navigation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 275px;
-    height: 100%;
-    background-color: #252f3f;
-    display: none;
-    padding-top: 100px; 
-    z-index: 999;
-}
-
-.nav-button {
-    display: block;
-    width: 100%;
-    padding: 20px;
-    margin-bottom: 10px;
-    background: none;
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.75);
     color: white;
     border: none;
-    text-align: left;
-    font-size: 20px;
+    border-radius: 50%;
+    font-size: 35px;
+    line-height: 35px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-button:hover {
+    background-color: #5cff8d;
+    color: #101719;
+}
+
+.carousel-button.left {
+    left: 20px;
+}
+
+.carousel-button.right {
+    right: 20px;
+}
+
+.carousel-controls {
+    margin-top: 15px;
+}
+
+.carousel-controls button {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    margin: 5px;
+    background-color: #5cff8d;
+    color: #101719;
+    border: none;
+    border-radius: 8px;
+    font-size: 28px;
     cursor: pointer;
 }
 
-.nav-button:hover {
-    background-color: #1ea878;
-}
-
-.page {
-    display: none;
-
-    padding: 100px 30px 30px 30px;
-}
-
-content {
-    margin-left: 0;
-    padding: 20px;
-    transition: margin-left 0.3s ease;
-}
-
-h1 {
-    color: #fff;
-    font-size: 100px;
-    font-family: "Playfair Display", "EB Garamond", serif;
-}
-
-h2 {
-    color: #fff;
-    font-size: 45px;
-    font-family: "Karantina";
-}
-
-h3 {
-    color: #fff;
+.tips-title {
+    margin-top: 80px;
     font-size: 50px;
-    font-family: "Playfair Display", "EB Garamond", serif;
 }
 
-h4 {
-    color: #fff  ;
-    font-size: 50px;
-    font-family: 'Playfair Display','EB Garamond',serif;
+.line {
+    width: 85%;
+    margin: 20px auto;
+    border-top: 3px solid white;
 }
 
-p {
-    color: #ffffff;
-    font-size: 20px;
-    font-family: 'Playfair Display','EB Garamond',serif;
-}
-p1 { 
-    color: #ffffff;
-    font-size: 20px;
-    font-family: 'Playfair Display','EB Garamond';
-    letter-spacing:0.2em;
-    line-height: 2.5;
+ul {
+    width: 500px;
+    max-width: 90%;
+    margin: 40px auto;
+    padding: 0;
+    text-align: left;
+    list-style: none;
 }
 
-p2 {
-    color: #000000;
-    font-size: 20px;
-    font-family: 'Playfair Display','EB Garamond',serif;
-}
-
-p3 {
-    color: #000000;
-    font-size: 20px;
-    font-family: 'Playfair Display','EB Garamond',serif;
-}
-
-page {
-    margin-left: 160px;
-    padding: 30px;
+li {
+    margin: 12px 0;
+    padding: 12px;
+    background-color: #1d292c;
+    border-radius: 8px;
 }
 
 .bmi-section {
     width: 600px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -152,51 +233,48 @@ page {
 }
 
 .calculator {
-    width: 90%;
+    width: 100%;
     max-width: 500px;
-    margin: 0 auto;
+    margin: 30px auto;
     padding: 30px;
-    box-sizing: border-box;
     background-color: #101719;
+    border-radius: 15px;
     text-align: center;
-    overflow: hidden;
 }
 
 .calculator input {
     display: block;
     width: 90%;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #10e059; 
+    padding: 12px;
+    margin: 10px auto;
+    background-color: #293538;
+    color: white;
+    border: none;
+    border-radius: 8px;
 }
 
 .calculator button {
-    padding: 10px 20px;
-}
-
-#result {
-    padding: 20px;
-    background-color: #10e059;
-    margin-top: 10px;
+    padding: 12px 20px;
+    margin: 5px;
+    background-color: #5cff8d;
+    color: #101719;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
     font-weight: bold;
 }
 
-body {
-		background-color: #101719;
-		color: white;
-    font-family: Playfair Display, EB Garamond, serif;
-    text-align: center;
-    margin-top: 100px;
+.calculator button:hover {
+    background-color: #4cff91;
 }
 
-button {
-    padding: 15px 25px;
-		color: #101719;
-		background-color: #5cff8d;
-		margin: 5px;
-    font-size: 16px;
-		border: none;
-		border-radius: 10px;
+#result {
+    padding: 15px;
+    margin-top: 15px;
+    background-color: #10e059;
+    color: #101719;
+    border-radius: 8px;
+    font-weight: bold;
 }
 
 #numberOfGlasses {
@@ -209,116 +287,21 @@ button {
     min-height: 40px;
     margin-top: 15px;
     padding: 10px;
-    box-sizing: border-box;
     background-color: #08db5c;
     color: black;
-    text-align: center;
+    border-radius: 8px;
 }
 
-body {
-    background-color: #101719;
-    text-align: center;
-}
- 
-h1 {
-     color: white;
-}
- 
-.line {
-     border-top: 4px solid white;
-}
- 
-ul {
-    width: 350px;
-    margin: 50px auto;
-    padding: 0;
-    text-align: left;
-}
- 
-li {
-    margin: 12px;
-    padding: 8px;
-    background-color: lightblue;
-}
- 
-.next {
-    color: white;
-    text-align: right;
-    margin-right: 20px;
-    margin-bottom: 20px;
-}
- 
-.next a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-}
- 
-.next a:hover {
-    text-decoration: underline;
-}
-
-.box {
-    width: 200px;
-    padding: 20px;
-    background-color: #eee;
-}
-
-.profile {
-    width: 300px;
-    padding: 20px;
-    background-color: #eee;
-}
-
-         body {
-          background-color: #101719;
-          text-align: center;
-}
- 
-    h1 {
-     color: white;
-}
- 
-     .line {
-     border-top: 4px solid white;
-}
- 
-ul {
-        width: 350px;
-        margin: 50px auto;
-        padding: 0;
-        text-align: left;
-}
- 
-li {
-    margin: 12px;
-    padding: 8px;
-    background-color: #121314;
-}
- 
-.next {
-     color: #121314;
-     text-align: right;
-     margin-right: 20px;
-     margin-bottom: 20px;
-}
- 
-.next a {
-     color: #121314;
-     text-decoration: none;
-     font-weight: bold;
-     cursor: pointer;
-}
-
-body {
-    background-color: #121314;
-    color: white;
-    font-family: Arial;
+video {
+    max-width: 100%;
+    display: block;
+    margin: 10px auto 30px;
+    border-radius: 10px;
 }
 
 .container {
     width: 500px;
+    max-width: 95%;
     margin: 50px auto;
     background-color: #1d292c;
     padding: 30px;
@@ -326,20 +309,17 @@ body {
     text-align: center;
 }
 
-h1 {
-    color: #5cff8d;
-}
-
-select {
+.container select {
     width: 100%;
     padding: 12px;
+    margin-top: 10px;
     background-color: #293538;
     color: white;
     border: none;
     border-radius: 10px;
 }
 
-button {
+.container button {
     padding: 15px 25px;
     background-color: #5cff8d;
     color: #101719;
@@ -347,6 +327,10 @@ button {
     border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.container button:hover {
+    background-color: #4cff91;
 }
 
 #resultWorkout {
@@ -361,22 +345,40 @@ button {
     border-radius: 10px;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.circle {
+    width: 150px;
+    height: 150px;
+    margin: 30px auto;
+    background-color: #293538;
+    border-radius: 50%;
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#Profile hr {
+    width: 400px;
+    max-width: 80%;
+    border: none;
+    border-top: 1px solid #444;
 }
 
-video {
-    max-width: 100%;
-    display: block;
-    margin: 0 auto;
+@media (max-width: 700px) {
+    h1 {
+        font-size: 55px;
+    }
+
+    h2 {
+        font-size: 35px;
+    }
+
+    .picture-container {
+        width: 95%;
+        height: 280px;
+    }
+
+    .description {
+        font-size: 15px;
+    }
+
+    #navigation {
+        width: 230px;
+    }
 }
