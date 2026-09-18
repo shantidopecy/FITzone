@@ -64,11 +64,11 @@ menuButton.onclick = function () {
 showPage(0);
 
 let images = [
-    "images/home1.jpg",
-    "images/home2.jpg",
-    "images/home3.jpg",
-    "images/home4.jpg",
-    "images/home5.jpg"
+    "photos/home1.jpg",
+    "photos/home2.jpg",
+    "photos/home3.jpg",
+    "photos/home4.jpg",
+    "photos/home5.jpg"
 ];
 
 let currentImage = 0;
