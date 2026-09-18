@@ -121,8 +121,40 @@ menuButton.onclick = function () {
 
 showPage(0);
 
-let bmiButton = document.getElementById("btn");
+$(document).ready(function () {
+    let currentSlide = 0;
+    let totalSlides = $(".slides img").length;
 
+    function showSlide(index) {
+        if (index >= totalSlides) {
+            currentSlide = 0;
+        } 
+        else if (index < 0) {
+            currentSlide = totalSlides - 1;
+        } 
+        else {
+            currentSlide = index;
+        }
+
+        $(".slides").css(
+            "transform",
+            "translateX(-" + (currentSlide * 100) + "%)"
+        );
+    }
+    $(".next").click(function () {
+        showSlide(currentSlide + 1);
+    });
+
+    $(".prev").click(function () {
+        showSlide(currentSlide - 1);
+    });
+    setInterval(function () {
+        showSlide(currentSlide + 1);
+    }, 4000);
+});
+
+
+let bmiButton = document.getElementById("btn");
 bmiButton.addEventListener("click", calculateBMI);
 
 function calculateBMI() {
