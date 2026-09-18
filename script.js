@@ -8,6 +8,7 @@ let pages = [
 
 let navigation = document.getElementById("navigation");
 let menuButton = document.getElementById("menuButton");
+let navLinks = navigation.getElementsByTagName("a");
 
 function showPage(index) {
   for (let i = 0; i < pages.length; i++) {
@@ -23,59 +24,59 @@ function showPage(index) {
     targetSection.scrollIntoView({ behavior: "smooth" });
   }
 
+  for (let i = 0; i < navLinks.length; i++) {
+    navLinks[i].classList.remove("active");
+  }
+  if (navLinks[index]) {
+    navLinks[index].classList.add("active");
+  }
+
   navigation.style.display = "none";
 }
 
 menuButton.onclick = function () {
-  if (navigation.style.display === "block") {
+  if (navigation.style.display === "block" || navigation.style.display === "flex") {
     navigation.style.display = "none";
   } else {
     navigation.style.display = "block";
   }
 };
 
-let navLinks = navigation.getElementsByTagName("a");
 for (let i = 0; i < navLinks.length; i++) {
   navLinks[i].onclick = function (event) {
-    event.preventDefault();
+    event.preventDefault(); 
     showPage(i);
   };
 }
 
 showPage(0);
 
-$(document).ready(function () {
-    let currentSlide = 0;
-    let totalSlides = $(".slides img").length;
+  let currentSlide = 0;
+  let totalSlides = $(".slides img").length;
 
-    function showSlide(index) {
-        if (index >= totalSlides) {
-            currentSlide = 0;
-        } 
-        else if (index < 0) {
-            currentSlide = totalSlides - 1;
-        } 
-        else {
-            currentSlide = index;
-        }
-
-        $(".slides").css(
-            "transform",
-            "translateX(-" + (currentSlide * 100) + "%)"
-        );
+  function showSlide(index) {
+    if (index >= totalSlides) {
+      currentSlide = 0;
+    } else if (index < 0) {
+      currentSlide = totalSlides - 1;
+    } else {
+      currentSlide = index;
     }
-    $(".next").click(function () {
-        showSlide(currentSlide + 1);
-    });
 
-    $(".prev").click(function () {
-        showSlide(currentSlide - 1);
-    });
-    setInterval(function () {
-        showSlide(currentSlide + 1);
-    }, 4000);
+    $(".slides").css(
+      "transform",
+      "translateX(-" + (currentSlide * 100) + "%)"
+    );
+  }
+
+  $(".next").click(function () {
+    showSlide(currentSlide + 1);
+  });
+
+  $(".prev").click(function () {
+    showSlide(currentSlide - 1);
+  });
 });
-
 
 let bmiButton = document.getElementById("btn");
 bmiButton.addEventListener("click", calculateBMI);
