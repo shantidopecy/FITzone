@@ -68,20 +68,16 @@ let images = [
     "images/home2.jpg",
     "images/home3.jpg",
     "images/home4.jpg",
-    "images/home5.jpg",
-    "images/home6.jpg"
+    "images/home5.jpg"
 ];
 
 let currentImage = 0;
 
-let homeImage = document.getElementById("homeImage");
-
 function showImage() {
-    homeImage.src = images[currentImage];
+    document.getElementById("homeImage").src = images[currentImage];
 }
 
 function nextImage() {
-
     currentImage++;
 
     if (currentImage >= images.length) {
@@ -92,7 +88,6 @@ function nextImage() {
 }
 
 function previousImage() {
-
     currentImage--;
 
     if (currentImage < 0) {
