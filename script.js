@@ -1,123 +1,46 @@
 let pages = [
-    "Home",
-    "Dashboard",
-    "workoutGuides",
-    "Statistics",
-    "Profile"
-];
-
-let pageNames = [
-    "Home",
-    "BMI Calculator",
-    "Workout Guides",
-    "Workout Generator",
-    "Profile"
+  "home",
+  "bmi",
+  "guides",
+  "generator",
+  "profile"
 ];
 
 let navigation = document.getElementById("navigation");
 let menuButton = document.getElementById("menuButton");
 
-for (let i = 0; i < pages.length; i++) {
-
-    let button = document.createElement("button");
-
-    button.innerHTML = pageNames[i];
-    button.className = "nav-button";
-
-    navigation.appendChild(button);
-
-    button.onclick = function () {
-        showPage(i);
-    };
-}
-
-function showPage(number) {
-
-    for (let i = 0; i < pages.length; i++) {
-        document.getElementById(pages[i]).style.display = "none";
-
+function showPage(index) {
+  for (let i = 0; i < pages.length; i++) {
+    let section = document.getElementById(pages[i]);
+    if (section) {
+      section.style.display = "none";
     }
+  }
 
-    document.getElementById(pages[number]).style.display = "block";
+  let targetSection = document.getElementById(pages[index]);
+  if (targetSection) {
+    targetSection.style.display = "block";
+    targetSection.scrollIntoView({ behavior: "smooth" });
+  }
 
-    navigation.style.display = "none";
+  navigation.style.display = "none";
 }
 
 menuButton.onclick = function () {
-    if (navigation.style.display == "block") {
-        navigation.style.display = "none";
-
-    } else {
-        navigation.style.display = "block";
-    }
+  if (navigation.style.display === "block") {
+    navigation.style.display = "none";
+  } else {
+    navigation.style.display = "block";
+  }
 };
 
-showPage(0);
-
-function showPage(number) {
-
-    for (let i = 0; i < pages.length; i++) {
-
-        document.getElementById(pages[i]).style.display = "none";
-
-    }
-
-    document.getElementById(pages[number]).style.display = "block";
-    navigation.style.display = "none";
+let navLinks = navigation.getElementsByTagName("a");
+for (let i = 0; i < navLinks.length; i++) {
+  navLinks[i].onclick = function (event) {
+    event.preventDefault();
+    showPage(i);
+  };
 }
-
-function changePage(number) {
-
-    let buttons = navigation.children;
-
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].className = "nav-button";
-    }
-
-    buttons[number].className = "nav-button active";
-
-    navigation.style.display = "none";
-
-    if (number == 0) {
-        document.getElementById("Home").scrollIntoView({
-            behavior: "smooth"
-        });
-    }
-
-    else if (number == 1) {
-        document.getElementById("Dashboard").scrollIntoView({
-            behavior: "smooth"
-        });
-    }
-
-    else if (number == 2) {
-        document.getElementById("Workout Guides").scrollIntoView({
-            behavior: "smooth"
-        });
-    }
-
-    else if (number == 3) {
-        document.getElementById("Workout Generator").scrollIntoView({
-            behavior: "smooth"
-        });
-    }
-
-    else if (number == 4) {
-        document.getElementById("Profile").scrollIntoView({
-            behavior: "smooth"
-        });
-    }
-}
-
-menuButton.onclick = function () {
-    if (navigation.style.display == "block") {
-        navigation.style.display = "none";
-    } 
-
-    else {
-        navigation.style.display = "block";
-    }
-};
 
 showPage(0);
 
