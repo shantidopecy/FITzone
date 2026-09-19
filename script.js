@@ -70,7 +70,7 @@ for (let i = 0; i < navLinks.length; i++) {
 
         event.preventDefault();
 
-        document.getElementById("home").style.display = "block";
+        showPage(i);
 
     };
 
