@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FITzone -- Your Fitness Tracker Website</title>
@@ -11,12 +12,15 @@
 <button id="menuButton" class="menu-button">☰</button>
 
 <nav id="navigation" class="sidebar">
+
     <div class="logo">FITZone</div>
+
     <a href="#" class="nav-link active">Home</a>
     <a href="#" class="nav-link">BMI Calculator</a>
     <a href="#" class="nav-link">Workouts</a>
     <a href="#" class="nav-link">Statistics</a>
     <a href="#" class="nav-link">Profile</a>
+
 </nav>
 
 <main id="content">
@@ -33,13 +37,17 @@
             Discover personalized fitness plans and home workouts designed to help you build strength, improve and achieve your fitness goals.
         </p1>
 
-<div class="slider">
-    <button id="prevButton" class="slider-prev">❮</button>
-    <img id="slide" src="photos/home.jpg">
-    <button id="nextButton" class="slider-next">❯</button>
-</div>
-</div>
-</div>
+        <div class="slider">
+
+            <button id="prevButton" class="slider-prev">❮</button>
+
+            <img id="slide" src="photos/home.jpg" alt="Fitness">
+
+            <button id="nextButton" class="slider-next">❯</button>
+
+        </div>
+
+    </div>
 
     <div class="fitness-tips-section">
 
@@ -95,13 +103,13 @@
 
             <p id="numberOfGlasses">0</p>
 
-            <button onclick="removeGlass()">−</button>
-            <button onclick="addGlass()">+</button>
+            <button id="removeGlass">−</button>
+            <button id="addGlass">+</button>
 
             <br>
             <br>
 
-            <button onclick="waterIntakeCheck()">Check</button>
+            <button id="waterCheck">Check</button>
 
             <p id="resultWater"></p>
 
@@ -215,8 +223,11 @@
                 <img src="photos/group.jpg" alt="Group Team">
                 <p class="photo-label">Our Team</p>
             </div>
+
         </div>
+
     </section>
+
 </div>
 
 <div id="Statistics" class="page">
@@ -240,12 +251,14 @@
         <label>Choose your workout:</label>
 
         <select id="workout">
+
             <option value="">Select your workout</option>
             <option value="fullbody">Full Body 🏋️</option>
             <option value="arms">Arms 💪</option>
             <option value="legs">Legs 🦵</option>
             <option value="core">Core 🔥</option>
             <option value="cardio">Cardio 🏃</option>
+
         </select>
 
         <br>
@@ -254,10 +267,12 @@
         <label>Choose difficulty:</label>
 
         <select id="difficulty">
+
             <option value="">Select Difficulty</option>
             <option value="Beginner">Beginner</option>
             <option value="Intermediate">Intermediate</option>
             <option value="Advanced">Advanced</option>
+
         </select>
 
         <br>
