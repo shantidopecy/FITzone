@@ -43,7 +43,7 @@ body {
 }
 
 .logo {
-    color: #ffffff;
+    color: white;
     font-weight: bold;
     font-size: 20px;
     text-align: center;
@@ -52,17 +52,16 @@ body {
 
 .sidebar .nav-link {
     display: block;
-    color: #ffffff;
+    color: white;
     text-decoration: none;
     padding: 16px 24px;
     font-size: 18px;
     font-weight: 500;
-    transition: background-color 0.2s ease;
 }
 
 .sidebar .nav-link.active {
     background-color: #00b87c;
-    color: #ffffff;
+    color: white;
 }
 
 .sidebar .nav-link:hover {
@@ -72,7 +71,7 @@ body {
 .page {
     display: none;
     min-height: 100vh;
-    padding: 100px 30px 60px 30px;
+    padding: 100px 30px 60px;
     box-sizing: border-box;
 }
 
@@ -86,6 +85,7 @@ body {
     color: #45ff91;
     font-size: 75px;
     margin-bottom: 25px;
+    text-align: center;
 }
 
 .home h2 {
@@ -163,6 +163,7 @@ body {
 .fitness-tips-section h1 {
     color: white;
     font-size: 45px;
+    text-align: center;
 }
 
 .line {
@@ -189,8 +190,6 @@ li {
 h1 {
     width: 100%;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 h2 {
@@ -335,8 +334,6 @@ video {
     background-color: #1a1a1a;
     border-radius: 12px;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
 }
 
 .photo-card img {
@@ -363,10 +360,6 @@ video {
     border-radius: 20px;
     text-align: center;
     box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 
 .container h4 {
@@ -409,6 +402,7 @@ select {
 }
 
 @media (max-width: 800px) {
+
     .slider {
         width: 95%;
         height: 400px;
@@ -443,6 +437,7 @@ select {
 }
 
 @media (max-width: 500px) {
+
     .slider {
         height: 250px;
     }
