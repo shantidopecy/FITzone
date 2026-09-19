@@ -461,7 +461,6 @@ select {
 
     .slider {
         width: 95%;
-        height: 280px;
     }
 
     .home-description {
@@ -476,5 +475,4 @@ select {
     .photo-grid {
         grid-template-columns: 1fr;
     }
-
 }
