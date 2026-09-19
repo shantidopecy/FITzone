@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FITzone -- Your Fitness Tracker Website</title>
@@ -8,43 +9,51 @@
 <body>
 
 <button id="menuButton" class="menu-button">☰</button>
+
 <nav id="navigation" class="sidebar">
     <div class="logo">FITZone</div>
-    <a href="#" class="nav-link active" data-target="home">Home</a>
-    <a href="#" class="nav-link" data-target="Dashboard">BMI Calculator</a>
-    <a href="#" class="nav-link" data-target="workoutGuides">Workouts</a>
-    <a href="#" class="nav-link" data-target="Statistics">Statistics</a>
-    <a href="#" class="nav-link" data-target="Profile">Profile</a>
+    <a href="#" class="nav-link active">Home</a>
+    <a href="#" class="nav-link">BMI Calculator</a>
+    <a href="#" class="nav-link">Workouts</a>
+    <a href="#" class="nav-link">Statistics</a>
+    <a href="#" class="nav-link">Profile</a>
 </nav>
 
 <main id="content">
+
 <section id="home" class="home page">
 
     <div class="home-content">
+
         <h1>Home</h1>
+
         <h2>Unleash your full potential</h2>
-        <p class="home-description">Discover personalized fitness plans and home workouts designed to help you build strength, improve and achieve your fitness goals.</p>
-    <div class="slider">
-    <div class="slides">
-        <img src="photos/home1.jpg" alt="Fitness workout">
-        <img src="photos/home2.jpg" alt="Fitness workout">
-        <img src="photos/home3.jpg" alt="Fitness workout">
-        <img src="photos/home4.jpg" alt="Fitness workout">
-        <img src="photos/home5.jpg" alt="Fitness workout">
-    </div>
 
-    <button class="slider-prev" id="prevButton">&#10094;</button>
-    <button class="slider-next" id="nextButton">&#10095;</button>
-</div>
+        <p1>
+            Discover personalized fitness plans and home workouts designed to help you build strength, improve and achieve your fitness goals.
+        </p1>
 
-<div id="sliderDots" class="slider-dots"></div>
+        <div class="slider">
 
-<div id="sliderDots" class="slider-dots"></div>
-<div id="sliderDots" class="slider-dots"></div>
+            <div class="slides">
+                <img src="images/home1.jpg" alt="Fitness workout">
+                <img src="images/home2.jpg" alt="Fitness workout">
+                <img src="images/home3.jpg" alt="Fitness workout">
+                <img src="images/home4.jpg" alt="Fitness workout">
+                <img src="images/home5.jpg" alt="Fitness workout">
+            </div>
+
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+
+        </div>
+
     </div>
 
     <div class="fitness-tips-section">
+
         <h1>FITNESS TIPS</h1>
+
         <div class="line"></div>
 
         <ul>
@@ -56,91 +65,136 @@
             <li>Get enough sleep so your body can rest and recover.</li>
             <li>Exercise regularly and make it part of your routine.</li>
         </ul>
+
     </div>
+
 </section>
 
-
 <div id="Dashboard" class="page">
+
     <div class="bmi-section">
 
         <h2>BMI CALCULATOR</h2>
 
-        <p>You can use this to identify and track your Body Mass Index [BMI] and track your water in-take every day.</p>
+        <p1>
+            You can use this to identify and track your Body Mass Index [BMI] and track your water in-take every day.
+        </p1>
+
+        <br>
+        <br>
 
         <div class="calculator">
+
             <p>Height (in cm)</p>
+
             <input type="text" id="height">
+
             <p>Weight (in kg)</p>
+
             <input type="text" id="weight">
+
             <button id="btn">Calculate BMI</button>
 
             <div id="result"></div>
 
-            <br><br>
+            <br>
+            <br>
 
             <p>How many glasses of water have you taken today?</p>
 
             <p id="numberOfGlasses">0</p>
+
             <button onclick="removeGlass()">−</button>
             <button onclick="addGlass()">+</button>
-            <br><br>
+
+            <br>
+            <br>
 
             <button onclick="waterIntakeCheck()">Check</button>
+
             <p id="resultWater"></p>
+
         </div>
+
     </div>
+
 </div>
 
-
 <div id="workoutGuides" class="page">
+
     <h2>WORKOUT GUIDES</h2>
-    <p>Here are some instructional videos you can watch while working out, whether you're at the gym or at home.</p>
-    <p>Here are some workout guides that you can use:</p>
-    <p>ARMS WORKOUT</p>
+
+    <p>
+        Here are some instructional videos you can watch while working out, whether you're at the gym or at home.
+    </p>
+
+    <p>
+        Here are some workout guides that you can use:
+    </p>
+
+    <p1>ARMS WORKOUT</p1>
+
     <video controls width="1000">
         <source src="videos/arms.mp4" type="video/mp4">
     </video>
 
     <br>
 
-    <p>ARMS WORKOUT [GYM EDITION]</p>
+    <p1>ARMS WORKOUT [GYM EDITION]</p1>
+
     <video controls width="1000">
         <source src="videos/armsgym.mp4" type="video/mp4">
     </video>
+
     <br>
 
-    <p>LEGS WORKOUT</p>
+    <p1>LEGS WORKOUT</p1>
+
     <video controls width="1000">
         <source src="videos/legs.mp4" type="video/mp4">
     </video>
+
     <br>
 
-    <p>FULL BODY WORKOUT</p>
+    <p1>FULL BODY WORKOUT</p1>
+
     <video controls width="1000">
         <source src="videos/fullbody.mp4" type="video/mp4">
     </video>
+
     <br>
 
-    <p>FULL BODY WORKOUT [WORKOUT EDITION]</p>
+    <p1>FULL BODY WORKOUT [WORKOUT EDITION]</p1>
+
     <video controls width="1000">
         <source src="videos/fullbodygym.mp4" type="video/mp4">
     </video>
+
     <br>
 
-    <p>CORE WORKOUT</p>
+    <p1>CORE WORKOUT</p1>
+
     <video controls width="1000">
         <source src="videos/core.mp4" type="video/mp4">
     </video>
+
     <br>
 
-    <p>CARDIO WORKOUT</p>
+    <p1>CARDIO WORKOUT</p1>
+
     <video controls width="1000">
         <source src="videos/cardio.mp4" type="video/mp4">
     </video>
+
+    <br>
+    <br>
+
     <section class="gallery-section">
 
         <h2 class="gallery-title">OUR TEAM</h2>
+
         <div class="photo-grid">
+
             <div class="photo-card">
                 <img src="photos/legss.jpg" alt="Leg Workout">
                 <p class="photo-label">Leg Workout</p>
@@ -170,18 +224,31 @@
                 <img src="photos/group.jpg" alt="Group Team">
                 <p class="photo-label">Our Team</p>
             </div>
+
         </div>
+
     </section>
+
 </div>
 
 <div id="Statistics" class="page">
+
     <h1>WORKOUTS</h1>
-    <p>WORKOUT RECOMMENDATIONS</p>
-    <p>A generator designed to provide workouts based on your skills.</p>
+
+    <p1>WORKOUT RECOMMENDATIONS</p1>
+
+    <br>
+
+    <p1>A generator designed to provide workouts based on your skills.</p1>
+
+    <br>
 
     <div class="container">
+
         <h4>WORKOUT GENERATOR</h4>
+
         <p>Create your own workout plan!</p>
+
         <label>Choose your workout:</label>
 
         <select id="workout">
@@ -193,9 +260,11 @@
             <option value="cardio">Cardio 🏃</option>
         </select>
 
-        <br><br>
+        <br>
+        <br>
 
         <label>Choose difficulty:</label>
+
         <select id="difficulty">
             <option value="">Select Difficulty</option>
             <option value="Beginner">Beginner</option>
@@ -203,27 +272,53 @@
             <option value="Advanced">Advanced</option>
         </select>
 
-        <br><br>
+        <br>
+        <br>
 
         <button id="generate">GENERATE WORKOUT</button>
-        <div id="resultWorkout"></div>
-    </div>
-</div>
 
+        <div id="resultWorkout"></div>
+
+    </div>
+
+</div>
 
 <div id="Profile" class="page">
+
     <h3>Profile</h3>
-    <p>My Profile</p>
+
+    <p1>My Profile</p1>
+
+    <br>
+
     <div class="circle"></div>
-    <p>Name: Daniel Julian Cataniag</p>
+
+    <p1>Name: Daniel Julian Cataniag</p1>
+
+    <br>
+
     <hr>
-    <p>Age: 25</p>
+
+    <p1>Age: 25</p1>
+
+    <br>
+
     <hr>
-    <p>Gender: Male</p>
+
+    <p1>Gender: Male</p1>
+
+    <br>
+
     <hr>
-    <p>Skills: Beginner</p>
+
+    <p1>Skills: Beginner</p1>
+
 </div>
+
 </main>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
