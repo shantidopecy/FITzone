@@ -6,40 +6,75 @@ let pages = [
     "Profile"
 ];
 
-let navigation = $("#navigation");
-let menuButton = $("#menuButton");
-let navLinks = $(".nav-link");
+let navigation = document.getElementById("navigation");
+let menuButton = document.getElementById("menuButton");
+let navLinks = navigation.getElementsByTagName("a");
 
 function showPage(index) {
 
-    $(".page").hide();
+    for (let i = 0; i < pages.length; i++) {
 
-    $("#" + pages[index]).show();
+        let section = document.getElementById(pages[i]);
 
-    navLinks.removeClass("active");
+        if (section) {
+            section.style.display = "none";
+        }
 
-    $(navLinks[index]).addClass("active");
+    }
 
-    navigation.hide();
+    let targetSection = document.getElementById(pages[index]);
 
-    window.scrollTo(0, 0);
+    if (targetSection) {
+
+        targetSection.style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+    for (let i = 0; i < navLinks.length; i++) {
+
+        navLinks[i].classList.remove("active");
+
+    }
+
+    if (navLinks[index]) {
+        navLinks[index].classList.add("active");
+    }
+
+    navigation.style.display = "none";
 }
 
-menuButton.click(function() {
 
-    navigation.toggle();
+menuButton.onclick = function() {
 
-});
+    if (navigation.style.display === "flex") {
 
-navLinks.click(function(event) {
+        navigation.style.display = "none";
 
-    event.preventDefault();
+    } else {
 
-    let index = navLinks.index(this);
+        navigation.style.display = "flex";
 
-    showPage(index);
+    }
 
-});
+};
+
+
+for (let i = 0; i < navLinks.length; i++) {
+
+    navLinks[i].onclick = function(event) {
+
+        event.preventDefault();
+
+        showPage(i);
+
+    };
+
+}
 
 
 let images = [
@@ -58,11 +93,9 @@ function showPhoto() {
 
 $("#nextButton").click(function() {
 
-    if (currentImage < images.length - 1) {
+    currentImage++;
 
-        currentImage++;
-
-    } else {
+    if (currentImage >= images.length) {
 
         currentImage = 0;
 
@@ -75,11 +108,9 @@ $("#nextButton").click(function() {
 
 $("#prevButton").click(function() {
 
-    if (currentImage > 0) {
+    currentImage--;
 
-        currentImage--;
-
-    } else {
+    if (currentImage < 0) {
 
         currentImage = images.length - 1;
 
@@ -90,21 +121,31 @@ $("#prevButton").click(function() {
 });
 
 
-$("#btn").click(function() {
+let bmiButton = document.getElementById("btn");
 
-    let height = parseFloat($("#height").val());
+if (bmiButton) {
 
-    let weight = parseFloat($("#weight").val());
+    bmiButton.addEventListener("click", calculateBMI);
+
+}
+
+function calculateBMI() {
+
+    let height = parseFloat(document.getElementById("height").value);
+
+    let weight = parseFloat(document.getElementById("weight").value);
+
+    let result = document.getElementById("result");
 
     if (isNaN(height) || height <= 0) {
 
-        $("#result").html("Provide a valid height!");
+        result.innerHTML = "Provide a valid height!";
 
     }
 
     else if (isNaN(weight) || weight <= 0) {
 
-        $("#result").html("Provide a valid weight!");
+        result.innerHTML = "Provide a valid weight!";
 
     }
 
@@ -116,42 +157,40 @@ $("#btn").click(function() {
 
         if (bmi < 18.5) {
 
-            $("#result").html("Underweight: " + bmi);
+            result.innerHTML = "Underweight: " + bmi;
 
         }
 
         else if (bmi < 24.9) {
 
-            $("#result").html("Normal: " + bmi);
+            result.innerHTML = "Normal: " + bmi;
 
         }
 
         else {
 
-            $("#result").html("Overweight: " + bmi);
+            result.innerHTML = "Overweight: " + bmi;
 
         }
 
     }
 
-});
+}
 
 
 let water = 0;
 
-
-$("#addGlass").click(function() {
+function addGlass() {
 
     water++;
 
-    $("#numberOfGlasses").html(water);
+    document.getElementById("numberOfGlasses").innerHTML = water;
 
-    $("#resultWater").html("");
+    document.getElementById("resultWater").innerHTML = "";
 
-});
+}
 
-
-$("#removeGlass").click(function() {
+function removeGlass() {
 
     if (water > 0) {
 
@@ -159,38 +198,58 @@ $("#removeGlass").click(function() {
 
     }
 
-    $("#numberOfGlasses").html(water);
+    document.getElementById("numberOfGlasses").innerHTML = water;
 
-    $("#resultWater").html("");
+    document.getElementById("resultWater").innerHTML = "";
 
-});
+}
 
+function waterIntakeCheck() {
 
-$("#waterCheck").click(function() {
+    let resultWater = document.getElementById("resultWater");
 
     if (water >= 8) {
 
-        $("#resultWater").html("GOOD!");
+        resultWater.innerHTML = "GOOD!";
 
     }
 
     else if (water >= 5) {
 
-        $("#resultWater").html(
-            "DRINK A FEW MORE GLASSES OF WATER"
-        );
+        resultWater.innerHTML = "DRINK A FEW MORE GLASSES OF WATER";
 
     }
 
     else {
 
-        $("#resultWater").html(
-            "DRINK MORE WATER"
-        );
+        resultWater.innerHTML = "DRINK MORE WATER";
 
     }
 
-});
+}
+
+
+let addButton = document.getElementById("addGlass");
+let removeButton = document.getElementById("removeGlass");
+let waterButton = document.getElementById("waterCheck");
+
+if (addButton) {
+
+    addButton.addEventListener("click", addGlass);
+
+}
+
+if (removeButton) {
+
+    removeButton.addEventListener("click", removeGlass);
+
+}
+
+if (waterButton) {
+
+    waterButton.addEventListener("click", waterIntakeCheck);
+
+}
 
 
 let fullbody = [
@@ -234,14 +293,13 @@ let cardio = [
 ];
 
 
-$("#generate").click(function() {
+function generateWorkout() {
 
-    let workout = $("#workout").val();
+    let workout = document.getElementById("workout").value;
 
-    let difficulty = $("#difficulty").val();
+    let difficulty = document.getElementById("difficulty").value;
 
-    let exercises;
-
+    let result = document.getElementById("resultWorkout");
 
     if (difficulty == "") {
 
@@ -251,7 +309,6 @@ $("#generate").click(function() {
 
     }
 
-
     if (workout == "") {
 
         alert("Please select a workout.");
@@ -260,6 +317,7 @@ $("#generate").click(function() {
 
     }
 
+    let exercises;
 
     if (workout == "fullbody") {
 
@@ -291,29 +349,28 @@ $("#generate").click(function() {
 
     }
 
+    result.innerHTML = "";
 
-    $("#resultWorkout").html("");
+    result.innerHTML += "<h2>Your Workout</h2>";
 
-    $("#resultWorkout").append(
-        "<h2>Your Workout</h2>"
-    );
-
-    $("#resultWorkout").append(
-        "<p>Difficulty: " + difficulty + "</p>"
-    );
-
+    result.innerHTML += "<p>Difficulty: " + difficulty + "</p>";
 
     for (let i = 0; i < exercises.length; i++) {
 
-        $("#resultWorkout").append(
-            "<div class='exercise'>" +
-            exercises[i] +
-            "</div>"
-        );
+        result.innerHTML += "<div class='exercise'>" + exercises[i] + "</div>";
 
     }
 
-});
+}
+
+
+let generateButton = document.getElementById("generate");
+
+if (generateButton) {
+
+    generateButton.addEventListener("click", generateWorkout);
+
+}
 
 
 showPage(0);
