@@ -75,23 +75,23 @@ let images = [
 let i = 0;
 
 function next() {
-    if (i < images.length - 1) {
+    if (i < photos.length - 1) {
         i++;
     } else {
         i = 0;
     }
 
-    $("#slide").attr("src", images[i]);
+    $("#slide").attr("src", photos[i]);
 }
 
 function prev() {
     if (i > 0) {
         i--;
     } else {
-        i = images.length - 1;
+        i = photos.length - 1;
     }
 
-    $("#slide").attr("src", images[i]);
+    $("#slide").attr("src", photos[i]);
 }
 
 let bmiButton = document.getElementById("btn");
