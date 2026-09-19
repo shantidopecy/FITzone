@@ -64,36 +64,35 @@ for (let i = 0; i < navLinks.length; i++) {
 
 showPage(0);
 
-let currentSlide = 0;
-let totalSlides = $(".slides img").length;
+let images = [
+    "images/workout1.jpg",
+    "images/workout2.jpg",
+    "images/workout3.jpg",
+    "images/workout4.jpg",
+    "images/workout5.jpg"
+];
 
-function showSlide(index) {
+let i = 0;
 
-    if (index >= totalSlides) {
-        currentSlide = 0;
+function next() {
+    if (i < images.length - 1) {
+        i++;
+    } else {
+        i = 0;
     }
 
-    else if (index < 0) {
-        currentSlide = totalSlides - 1;
-    }
-
-    else {
-        currentSlide = index;
-    }
-
-    $(".slides").css(
-        "transform",
-        "translateX(-" + (currentSlide * 100) + "%)"
-    );
+    $("#slide").attr("src", images[i]);
 }
 
-$(".next").click(function () {
-    showSlide(currentSlide + 1);
-});
+function prev() {
+    if (i > 0) {
+        i--;
+    } else {
+        i = images.length - 1;
+    }
 
-$(".prev").click(function () {
-    showSlide(currentSlide - 1);
-});
+    $("#slide").attr("src", images[i]);
+}
 
 let bmiButton = document.getElementById("btn");
 
