@@ -65,35 +65,37 @@ for (let i = 0; i < navLinks.length; i++) {
 showPage(0);
 
 let photos = [
-    "photos/home1.jpg",
+    "photos/home.jpg",
     "photos/home2.jpg",
     "photos/home3.jpg",
     "photos/home4.jpg",
     "photos/home5.jpg"
 ];
 
-let current = 0;
+let currentPhoto = 0;
 
-$(document).ready(function() {
-    $("#nextButton").click(function() {
-        if (current < photos.length - 1) {
-            current++;
-        } else {
-            current = 0;
-        }
+function showPhoto() {
+    $("#slide").attr("src", photos[currentPhoto]);
+}
 
-        $("#slide").attr("src", photos[current]);
-    });
+$("#nextButton").click(function() {
+    if (currentPhoto < photos.length - 1) {
+        currentPhoto++;
+    } else {
+        currentPhoto = 0;
+    }
 
-    $("#prevButton").click(function() {
-        if (current > 0) {
-            current--;
-        } else {
-            current = photos.length - 1;
-        }
+    showPhoto();
+});
 
-        $("#slide").attr("src", photos[current]);
-    });
+$("#prevButton").click(function() {
+    if (currentPhoto > 0) {
+        currentPhoto--;
+    } else {
+        currentPhoto = photos.length - 1;
+    }
+
+    showPhoto();
 });
 
 let bmiButton = document.getElementById("btn");
