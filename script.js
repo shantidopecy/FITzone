@@ -78,7 +78,7 @@ for (let i = 0; i < navLinks.length; i++) {
 
 
 let images = [
-    "photos/home.jpg",
+    "photos/home1.jpg",
     "photos/home2.jpg",
     "photos/home3.jpg"
     "photos/home4.jpg"
