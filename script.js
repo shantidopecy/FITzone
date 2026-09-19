@@ -64,7 +64,7 @@ for (let i = 0; i < navLinks.length; i++) {
 
 showPage(0);
 
-let images = [
+let photos = [
     "photos/workout1.jpg",
     "photos/workout2.jpg",
     "photos/workout3.jpg",
@@ -75,31 +75,25 @@ let images = [
 let current = 0;
 
 $(document).ready(function() {
-
     $("#nextButton").click(function() {
-
-        if (current < images.length - 1) {
+        if (current < photos.length - 1) {
             current++;
         } else {
             current = 0;
         }
 
-        $("#slide").attr("src", images[current]);
-
+        $("#slide").attr("src", photos[current]);
     });
 
     $("#prevButton").click(function() {
-
         if (current > 0) {
             current--;
         } else {
-            current = images.length - 1;
+            current = photos.length - 1;
         }
 
-        $("#slide").attr("src", images[current]);
-
+        $("#slide").attr("src", photos[current]);
     });
-
 });
 
 let bmiButton = document.getElementById("btn");
