@@ -72,27 +72,35 @@ let images = [
     "photos/workout5.jpg"
 ];
 
-let i = 0;
+let current = 0;
 
-function next() {
-    if (i < images.length - 1) {
-        i++;
-    } else {
-        i = 0;
-    }
+$(document).ready(function() {
 
-    document.getElementById("slide").src = images[i];
-}
+    $("#nextButton").click(function() {
 
-function prev() {
-    if (i > 0) {
-        i--;
-    } else {
-        i = images.length - 1;
-    }
+        if (current < images.length - 1) {
+            current++;
+        } else {
+            current = 0;
+        }
 
-    document.getElementById("slide").src = images[i];
-}
+        $("#slide").attr("src", images[current]);
+
+    });
+
+    $("#prevButton").click(function() {
+
+        if (current > 0) {
+            current--;
+        } else {
+            current = images.length - 1;
+        }
+
+        $("#slide").attr("src", images[current]);
+
+    });
+
+});
 
 let bmiButton = document.getElementById("btn");
 
