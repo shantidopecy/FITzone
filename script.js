@@ -6,92 +6,105 @@ let pages = [
     "Profile"
 ];
 
-let navigation = document.getElementById("navigation");
-let menuButton = document.getElementById("menuButton");
-let navLinks = navigation.getElementsByTagName("a");
+let navigation = $("#navigation");
+let menuButton = $("#menuButton");
+let navLinks = $(".nav-link");
 
 function showPage(index) {
 
-    for (let i = 0; i < pages.length; i++) {
+    $(".page").hide();
 
-        let section = document.getElementById(pages[i]);
+    $("#" + pages[index]).show();
 
-        if (section) {
-            section.style.display = "none";
-        }
-    }
+    navLinks.removeClass("active");
 
-    let targetSection = document.getElementById(pages[index]);
+    $(navLinks[index]).addClass("active");
 
-    if (targetSection) {
-        targetSection.style.display = "block";
+    navigation.hide();
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    }
-
-    for (let i = 0; i < navLinks.length; i++) {
-        navLinks[i].classList.remove("active");
-    }
-
-    if (navLinks[index]) {
-        navLinks[index].classList.add("active");
-    }
-
-    navigation.style.display = "none";
+    window.scrollTo(0, 0);
 }
 
-menuButton.onclick = function () {
+menuButton.click(function() {
 
-    if (navigation.style.display === "flex") {
-        navigation.style.display = "none";
-    } else {
-        navigation.style.display = "flex";
-    }
-};
+    navigation.toggle();
 
-for (let i = 0; i < navLinks.length; i++) {
-
-    navLinks[i].onclick = function (event) {
-
-        event.preventDefault();
-
-        showPage(i);
-    };
-}
-
-showPhoto();
 });
 
-let bmiButton = document.getElementById("btn");
+navLinks.click(function(event) {
 
-if (bmiButton) {
-    bmiButton.addEventListener("click", calculateBMI);
+    event.preventDefault();
+
+    let index = navLinks.index(this);
+
+    showPage(index);
+
+});
+
+
+let images = [
+    "photos/home.jpg",
+    "photos/home2.jpg",
+    "photos/home3.jpg"
+];
+
+let currentImage = 0;
+
+function showPhoto() {
+
+    $("#slide").attr("src", images[currentImage]);
+
 }
 
-function calculateBMI() {
+$("#nextButton").click(function() {
 
-    let height = parseFloat(
-        document.getElementById("height").value
-    );
+    if (currentImage < images.length - 1) {
 
-    let weight = parseFloat(
-        document.getElementById("weight").value
-    );
+        currentImage++;
 
-    let result = document.getElementById("result");
+    } else {
+
+        currentImage = 0;
+
+    }
+
+    showPhoto();
+
+});
+
+
+$("#prevButton").click(function() {
+
+    if (currentImage > 0) {
+
+        currentImage--;
+
+    } else {
+
+        currentImage = images.length - 1;
+
+    }
+
+    showPhoto();
+
+});
+
+
+$("#btn").click(function() {
+
+    let height = parseFloat($("#height").val());
+
+    let weight = parseFloat($("#weight").val());
 
     if (isNaN(height) || height <= 0) {
 
-        result.innerHTML = "Provide a valid height!";
+        $("#result").html("Provide a valid height!");
 
     }
 
     else if (isNaN(weight) || weight <= 0) {
 
-        result.innerHTML = "Provide a valid weight!";
+        $("#result").html("Provide a valid weight!");
 
     }
 
@@ -103,85 +116,84 @@ function calculateBMI() {
 
         if (bmi < 18.5) {
 
-            result.innerHTML =
-                "Underweight: " + bmi;
+            $("#result").html("Underweight: " + bmi);
 
         }
 
         else if (bmi < 24.9) {
 
-            result.innerHTML =
-                "Normal: " + bmi;
+            $("#result").html("Normal: " + bmi);
 
         }
 
         else {
 
-            result.innerHTML =
-                "Overweight: " + bmi;
+            $("#result").html("Overweight: " + bmi);
+
         }
+
     }
-}
+
+});
+
 
 let water = 0;
 
-function addGlass() {
+
+$("#addGlass").click(function() {
 
     water++;
 
-    document.getElementById(
-        "numberOfGlasses"
-    ).innerHTML = water;
+    $("#numberOfGlasses").html(water);
 
-    document.getElementById(
-        "resultWater"
-    ).innerHTML = "";
-}
+    $("#resultWater").html("");
 
-function removeGlass() {
+});
+
+
+$("#removeGlass").click(function() {
 
     if (water > 0) {
+
         water--;
+
     }
 
-    document.getElementById(
-        "numberOfGlasses"
-    ).innerHTML = water;
+    $("#numberOfGlasses").html(water);
 
-    document.getElementById(
-        "resultWater"
-    ).innerHTML = "";
-}
+    $("#resultWater").html("");
 
-function waterIntakeCheck() {
+});
+
+
+$("#waterCheck").click(function() {
 
     if (water >= 8) {
 
-        document.getElementById(
-            "resultWater"
-        ).innerHTML = "GOOD!";
+        $("#resultWater").html("GOOD!");
 
     }
 
     else if (water >= 5) {
 
-        document.getElementById(
-            "resultWater"
-        ).innerHTML =
-            "DRINK A FEW MORE GLASSES OF WATER";
+        $("#resultWater").html(
+            "DRINK A FEW MORE GLASSES OF WATER"
+        );
 
     }
 
     else {
 
-        document.getElementById(
-            "resultWater"
-        ).innerHTML =
-            "DRINK MORE WATER";
-    }
-}
+        $("#resultWater").html(
+            "DRINK MORE WATER"
+        );
 
-var fullbody = [
+    }
+
+});
+
+
+let fullbody = [
     "Jumping Jacks - 30 seconds",
     "Squats - 12 reps",
     "Push-ups - 10 reps",
@@ -189,7 +201,7 @@ var fullbody = [
     "Plank - 30 seconds"
 ];
 
-var arms = [
+let arms = [
     "Push-ups - 10 reps",
     "Tricep Dips - 12 reps",
     "Arm Circles - 30 seconds",
@@ -197,7 +209,7 @@ var arms = [
     "Plank - 30 seconds"
 ];
 
-var legs = [
+let legs = [
     "Squats - 15 reps",
     "Lunges - 12 reps",
     "Glute Bridges - 15 reps",
@@ -205,7 +217,7 @@ var legs = [
     "Wall Sit - 30 seconds"
 ];
 
-var core = [
+let core = [
     "Plank - 30 seconds",
     "Crunches - 15 reps",
     "Leg Raises - 10 reps",
@@ -213,7 +225,7 @@ var core = [
     "Mountain Climbers - 30 seconds"
 ];
 
-var cardio = [
+let cardio = [
     "Jumping Jacks - 30 seconds",
     "High Knees - 30 seconds",
     "Mountain Climbers - 30 seconds",
@@ -221,27 +233,33 @@ var cardio = [
     "Burpees - 10 reps"
 ];
 
-function generateWorkout() {
 
-    var workout = document.getElementById("workout").value;
-    var difficulty = document.getElementById("difficulty").value;
-    var result = document.getElementById("resultWorkout");
+$("#generate").click(function() {
+
+    let workout = $("#workout").val();
+
+    let difficulty = $("#difficulty").val();
+
+    let exercises;
+
 
     if (difficulty == "") {
 
         alert("Please select a difficulty.");
 
         return;
+
     }
+
 
     if (workout == "") {
 
         alert("Please select a workout.");
 
         return;
+
     }
 
-    var exercises;
 
     if (workout == "fullbody") {
 
@@ -270,26 +288,32 @@ function generateWorkout() {
     else {
 
         exercises = cardio;
+
     }
 
-    result.innerHTML = "";
 
-    result.innerHTML += "<h2>Your Workout</h2>";
+    $("#resultWorkout").html("");
 
-    result.innerHTML +=
-        "<p>Difficulty: " + difficulty + "</p>";
+    $("#resultWorkout").append(
+        "<h2>Your Workout</h2>"
+    );
 
-    for (var i = 0; i < exercises.length; i++) {
+    $("#resultWorkout").append(
+        "<p>Difficulty: " + difficulty + "</p>"
+    );
 
-        result.innerHTML +=
+
+    for (let i = 0; i < exercises.length; i++) {
+
+        $("#resultWorkout").append(
             "<div class='exercise'>" +
             exercises[i] +
-            "</div>";
+            "</div>"
+        );
+
     }
-}
 
-let generateButton = document.getElementById("generate");
+});
 
-if (generateButton) {
-    generateButton.onclick = generateWorkout;
-}
+
+showPage(0);
