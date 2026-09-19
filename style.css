@@ -59,10 +59,9 @@ body {
 }
 
 .slider {
-    position: relative;
-    width: 40%;
-    max-width: 1000px;
-    height: 400px;
+    width: 70%;
+    max-width: 900px;
+    height: 380px;
     margin: 40px auto 0;
     overflow: hidden;
     border-radius: 12px;
