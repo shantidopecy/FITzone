@@ -409,7 +409,22 @@ select {
 @media (max-width: 800px) {
     .slider {
         width: 95%;
-        height: 350px;
+        height: 400px;
+    }
+
+    .slider-prev,
+    .slider-next {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    .slider-prev {
+        left: 10px;
+    }
+
+    .slider-next {
+        right: 10px;
     }
 
     .photo-grid {
@@ -432,19 +447,5 @@ select {
 
     .photo-grid {
         grid-template-columns: 1fr;
-    }
-
-    .slider button {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-    }
-
-    .slider .prev {
-        left: 10px;
-    }
-
-    .slider .next {
-        right: 10px;
     }
 }
