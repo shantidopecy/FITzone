@@ -62,40 +62,7 @@ for (let i = 0; i < navLinks.length; i++) {
     };
 }
 
-showPage(0);
-
-let photos = [
-    "photos/home.jpg",
-    "photos/home2.jpg",
-    "photos/home3.jpg",
-    "photos/home4.jpg",
-    "photos/home5.jpg"
-];
-
-let currentPhoto = 0;
-
-function showPhoto() {
-    $("#slide").attr("src", photos[currentPhoto]);
-}
-
-$("#nextButton").click(function() {
-    if (currentPhoto < photos.length - 1) {
-        currentPhoto++;
-    } else {
-        currentPhoto = 0;
-    }
-
-    showPhoto();
-});
-
-$("#prevButton").click(function() {
-    if (currentPhoto > 0) {
-        currentPhoto--;
-    } else {
-        currentPhoto = photos.length - 1;
-    }
-
-    showPhoto();
+showPhoto();
 });
 
 let bmiButton = document.getElementById("btn");
