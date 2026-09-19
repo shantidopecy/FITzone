@@ -65,11 +65,11 @@ for (let i = 0; i < navLinks.length; i++) {
 showPage(0);
 
 let images = [
-    "images/workout1.jpg",
-    "images/workout2.jpg",
-    "images/workout3.jpg",
-    "images/workout4.jpg",
-    "images/workout5.jpg"
+    "photos/workout1.jpg",
+    "photos/workout2.jpg",
+    "photos/workout3.jpg",
+    "photos/workout4.jpg",
+    "photos/workout5.jpg"
 ];
 
 let i = 0;
