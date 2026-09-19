@@ -81,6 +81,8 @@ let images = [
     "photos/home.jpg",
     "photos/home2.jpg",
     "photos/home3.jpg"
+    "photos/home4.jpg"
+    "photos/home5.jpg"
 ];
 
 let currentImage = 0;
