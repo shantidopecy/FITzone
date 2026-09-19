@@ -81,7 +81,7 @@ function next() {
         i = 0;
     }
 
-    $("#slide").attr("src", images[i]);
+    document.getElementById("slide").src = images[i];
 }
 
 function prev() {
@@ -91,7 +91,7 @@ function prev() {
         i = images.length - 1;
     }
 
-    $("#slide").attr("src", images[i]);
+    document.getElementById("slide").src = images[i];
 }
 
 let bmiButton = document.getElementById("btn");
