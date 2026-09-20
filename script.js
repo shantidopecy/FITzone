@@ -53,34 +53,36 @@ for (let i = 0; i < navLinks.length; i++) {
     };
 }
 
-let images = [
-    "photos/home1.jpg",
-    "photos/home2.jpg",
-    "photos/home3.jpg",
-    "photos/home4.jpg",
-    "photos/home5.jpg"
-];
+$(document).ready(function() {
+    let images = [
+        "photos/home1.jpg",
+        "photos/home2.jpg",
+        "photos/home3.jpg",
+        "photos/home4.jpg",
+        "photos/home5.jpg"
+    ];
 
-let currentImage = 0;
+    let currentImage = 0;
 
-function showPhoto() {
-    $("#slide").attr("src", images[currentImage]);
-}
-
-$("#nextButton").click(function() {
-    currentImage++;
-    if (currentImage >= images.length) {
-        currentImage = 0;
+    function showPhoto() {
+        $("#slide").attr("src", images[currentImage]);
     }
-    showPhoto();
-});
 
-$("#prevButton").click(function() {
-    currentImage--;
-    if (currentImage < 0) {
-        currentImage = images.length - 1;
-    }
-    showPhoto();
+    $("#nextButton").click(function() {
+        currentImage++;
+        if (currentImage >= images.length) {
+            currentImage = 0;
+        }
+        showPhoto();
+    });
+
+    $("#prevButton").click(function() {
+        currentImage--;
+        if (currentImage < 0) {
+            currentImage = images.length - 1;
+        }
+        showPhoto();
+    });
 });
 
 let bmiButton = document.getElementById("btn");
