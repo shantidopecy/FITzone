@@ -76,12 +76,11 @@ for (let i = 0; i < navLinks.length; i++) {
 
 }
 
-
 let images = [
     "photos/home1.jpg",
     "photos/home2.jpg",
-    "photos/home3.jpg"
-    "photos/home4.jpg"
+    "photos/home3.jpg",
+    "photos/home4.jpg",
     "photos/home5.jpg"
 ];
 
@@ -98,30 +97,24 @@ $("#nextButton").click(function() {
     currentImage++;
 
     if (currentImage >= images.length) {
-
         currentImage = 0;
-
     }
 
     showPhoto();
 
 });
-
 
 $("#prevButton").click(function() {
 
     currentImage--;
 
     if (currentImage < 0) {
-
         currentImage = images.length - 1;
-
     }
 
     showPhoto();
 
 });
-
 
 let bmiButton = document.getElementById("btn");
 
