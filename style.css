@@ -107,8 +107,8 @@ body {
 .slider {
     position: relative;
     width: 85%;
-    max-width: 1250px;
-    height: 500px; 
+    max-width: 1000px;
+    height: auto; 
     margin: 40px auto;
     overflow: hidden;
     border-radius: 12px;
@@ -117,10 +117,11 @@ body {
 
 .slider img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center; 
+    height: auto; 
+    max-height: 700px; 
+    object-fit: contain;
     display: block;
+    margin: 0 auto;
 }
 
 .slider-prev,
