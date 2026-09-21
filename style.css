@@ -189,39 +189,52 @@ li {
     border-radius: 5px;
 }
 
-h1, h2, h3, h4, p, label {
+h1, h2, h3, h4, p, p1, p2,label {
+    text-align: left;
     color: white;
-    text-align: center; 
 }
 
-h2 {
-    font-size: 60px;
-    font-family: "Karantina", Arial, sans-serif;
-    color: #40ff78; 
-    margin-bottom: 20px;
+
+
+h1 {
+    width: 100%;
 }
+
+
+
+h2 {
+    font-size: 45px;
+    font-family: "Karantina", Arial, sans-serif;
+}
+
+
 
 h3, h4 {
     font-size: 50px;
     font-family: "Playfair Display", "EB Garamond", serif;
 }
 
-.subtitle {
+
+
+p {
+    font-size: 20px;
+    font-family: "Playfair Display", "EB Garamond", serif;
+    line-height: 1.6;
+
+}
+
+p1 {
     font-size: 20px;
     font-family: "Playfair Display", "EB Garamond", serif;
     letter-spacing: 0.2em;
-    line-height: 1.5; 
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 15px;
+    line-height: 2.5;
 }
 
-p {
-    font-size: 18px;
+p2 
+    font-size: 20px;
     font-family: "Playfair Display", "EB Garamond", serif;
-    line-height: 1.6;
-    max-width: 700px; 
-    margin: 0 auto 30px auto;
+    letter-spacing: 0.2em;
+    line-height: 2.5;
 }
 
 .bmi-section {
