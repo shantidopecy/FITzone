@@ -189,9 +189,12 @@ li {
     border-radius: 5px;
 }
 
+h1, h2, h3, h4, p, .p1 {
+    text-align: center;
+}
+
 h1 {
     width: 100%;
-    text-align: center;
 }
 
 h2 {
@@ -200,13 +203,7 @@ h2 {
     font-family: "Karantina", Arial, sans-serif;
 }
 
-h3 {
-    color: white;
-    font-size: 50px;
-    font-family: "Playfair Display", "EB Garamond", serif;
-}
-
-h4 {
+h3, h4 {
     color: white;
     font-size: 50px;
     font-family: "Playfair Display", "EB Garamond", serif;
@@ -217,18 +214,15 @@ p {
     font-size: 20px;
     font-family: "Playfair Display", "EB Garamond", serif;
     line-height: 1.6;
-    text-align: center;
 }
 
-p1 {
+.p1 {
     color: white;
     font-size: 20px;
     font-family: "Playfair Display", "EB Garamond", serif;
     letter-spacing: 0.2em;
     line-height: 2.5;
-    text-align: center;
 }
-
 .bmi-section {
     width: 600px;
     max-width: 90%;
